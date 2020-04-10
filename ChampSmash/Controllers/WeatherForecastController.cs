@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ChampSmash.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -29,6 +30,9 @@ namespace ChampSmash.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
+            var rgs = new RiotGamesService();
+            var champs = rgs.GetChampions();
+            var newChamps = champs;
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),

@@ -7,5 +7,6 @@ namespace ChampSmash.Models.Riot
 {
     public class RiotChampion
     {
+
     }
 }
